@@ -2,8 +2,6 @@
 
 (() => {
     const noop = (value) => value;
-    console.log("noop:", noop)
-
 
     const createCanvas = (container, { width, height }) => {
         const canvasEl = document.createElement(`canvas`);
@@ -19,7 +17,7 @@
         // container.style.maxHeight = options.width * 9/16 + 'px';
         container.insertAdjacentElement(`afterbegin`, createCanvas(container, options));
         container.insertAdjacentHTML(`afterbegin`, 
-            `<div class="video-controls">
+            `<div class="video-controls" poster="../imgs/background.jpg" autoplay="false" preload="none">
                 <div class="video-controls__separator"></div>
             </div>`
         );
@@ -190,9 +188,8 @@
             const height = width * 9 / 16 + 'px !important';
             document.querySelector('.video-controls').style.height = height;
             
-            console.log('Window.resize', height)
-            // resizeFn();
-            // resizeFn = setupDNDForSize();
+            resizeFn();
+            resizeFn = setupDNDForSize();
         };
 
         resizeFn = setupDNDForSize();
