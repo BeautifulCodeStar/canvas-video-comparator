@@ -94,6 +94,8 @@
                     requestAnimationFrame(drawLoop);
             }
             requestAnimationFrame(drawLoop);
+        } else {
+            playVids();
         }
     }
 
