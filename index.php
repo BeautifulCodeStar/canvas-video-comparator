@@ -28,7 +28,7 @@
         </div>
 
         
-        <div id="videoUI"></div>
+        <!-- <div id="videoUI"></div> -->
     </body>
     <script>
         
@@ -88,6 +88,8 @@
             requestAnimationFrame(drawLoop);
         }
     }
+
+    playVids();
 
     Number.prototype.clamp = function(min, max) {
         return Math.min(Math.max(this, min), max);
