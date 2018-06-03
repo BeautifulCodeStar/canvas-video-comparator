@@ -6,13 +6,13 @@
         <link rel="stylesheet" href="assets/css/style.css">
     </head>
     <body>
-      
-        <canvas id="videoMerge" width="1024" height="576">
-        </canvas>
+        <div style="width:100%;height:50% auto;">
+            <canvas id="videoMerge" width="630" height="800">
+            </canvas>
+        </div>
         
         <div id="video-compare-container">
             <video muted autoplay="autoplay" loop id="rightVideo">
-                
                 <source src="assets/videos/video-1.mp4">    
             </video>
             <video muted autoplay="autoplay" loop id="leftVideo">
@@ -24,11 +24,10 @@
             <span class="big-icon" id="exec">
                 <i class="fa fa-play"></i>
             </span>
-            Canvas Video<br>Comparator
+            <p>
+                Canvas Video<br>Comparator
+            </p>
         </div>
-
-        
-        <!-- <div id="videoUI"></div> -->
     </body>
     <script>
         
@@ -39,8 +38,8 @@
         rightVideo = document.getElementById("rightVideo"),
         videoControl = document.querySelector('#exec'),
         position = 0.5,
-        vidHeight = 576,
-        vidWidth = 1024;
+        vidHeight = 800,
+        vidWidth = 630;
         mergeContext = videoMerge.getContext("2d");
         videoContainer.style.display = "none";
         videoControl.addEventListener("click", playPause, false);
@@ -53,28 +52,31 @@
                 rightVideo.pause();
             }
         }
+        setTimeout(() => {
+            playVids();
+        }, 1000);
 
     function playVids() {
         if (leftVideo.readyState > 3 && rightVideo.readyState > 3) {
             leftVideo.play();
             rightVideo.play();
-
+            
             function trackLocation(e) {
                 position = ((e.pageX - videoMerge.offsetLeft) / videoMerge.offsetWidth);
-                // if (position <= 1 && position >= 0) {
-                //     leftVideo.volume = position;
-                //     rightVideo.volume = (1 - position);
-                // }
+                if (position <= 1 && position >= 0) {
+                    leftVideo.volume = position;
+                    rightVideo.volume = (1 - position);
+                }
             }
             
             videoMerge.addEventListener("mousemove", trackLocation, false); 
             videoMerge.addEventListener("touchstart",trackLocation,false);
             videoMerge.addEventListener("touchmove",trackLocation,false);
-
+            // videoMerge.addEventListener("resize",trackLocation,false);
+            
             function drawLoop() {
-                mergeContext.drawImage(leftVideo, 0, 0, vidWidth, vidHeight,
-                0, 0, vidWidth, vidHeight);
-                    mergeContext.drawImage(rightVideo, 
+                mergeContext.drawImage(leftVideo, 0, 0, vidWidth, vidHeight, 0, 0, vidWidth, vidHeight);
+                mergeContext.drawImage(rightVideo, 
                 (vidWidth * position).clamp(0.01,vidWidth), 0,
                 (vidWidth - (vidWidth * position)).clamp(0.01,vidWidth),
                 vidHeight,(vidWidth * position).clamp(0.01,vidWidth), 0,
@@ -85,7 +87,7 @@
         }
     }
 
-    playVids();
+    
 
     Number.prototype.clamp = function(min, max) {
         return Math.min(Math.max(this, min), max);
