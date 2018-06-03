@@ -31,7 +31,9 @@
         </div>
     </body>
     <script src="http://vjs.zencdn.net/ie8/1.1.0/videojs-ie8.min.js"></script>
-    <script src="http://vjs.zencdn.net/5.0.2/video.js"></script> `
+    <script src="http://vjs.zencdn.net/5.0.2/video.js"></script>
+    <script src="assets/js/canvas-video-player.js"></script>
+
     <script>
         
         var videoContainer = document.getElementById("video-compare-container"),
@@ -47,6 +49,27 @@
         mergeContext = videoMerge.getContext("2d");
         videoContainer.style.display = "none";
         videoControl.addEventListener("click", playPause, false);
+
+        var isIOS = /iPad|iPhone|iPod/.test(navigator.platform);
+	
+        if (isIOS) {
+    
+            var canvasVideo = new CanvasVideoPlayer({
+                videoSelector: '#rightVideo',
+                canvasSelector: '#videoMerge',
+                timelineSelector: false,
+                autoplay: true,
+                makeLoop: true,
+                pauseOnClick: false,
+                audio: false
+            });
+            
+        } else {
+            
+            // Use HTML5 video
+            document.querySelectorAll('.canvas')[0].style.display = 'none';
+            
+        }	
 
         function playPause() {
             if (leftVideo.paused) {
