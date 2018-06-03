@@ -57,6 +57,7 @@
         var iOS = /iPad|iPhone|iPod/.test(navigator.platform);
         if (iOS) {
             playPause();
+            playVids();
         } else {
             setTimeout(() => {
                 playVids();
