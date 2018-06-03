@@ -67,7 +67,7 @@
         } else {
             
             // Use HTML5 video
-            document.querySelectorAll('.canvas')[0].style.display = 'none';
+            // document.querySelectorAll('.canvas')[0].style.display = 'none';
             
         }	
 
