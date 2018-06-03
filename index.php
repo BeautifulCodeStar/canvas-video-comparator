@@ -11,17 +11,17 @@
         </canvas>
         
         <div id="video-compare-container">
-            <video muted autoplay="autoplay" id="rightVideo">
+            <video muted autoplay="autoplay" loop id="rightVideo">
                 
                 <source src="assets/videos/video-1.mp4">    
             </video>
-            <video muted autoplay="autoplay" id="leftVideo">
+            <video muted autoplay="autoplay" loop id="leftVideo">
                 <source src="assets/videos/video-2.mp4">
             </video>
         </div>
 
         <div id="over_video">
-            <span class="big-icon" onclick="play()">
+            <span class="big-icon" id="exec">
                 <i class="fa fa-play"></i>
             </span>
             Canvas Video<br>Comparator
@@ -37,24 +37,20 @@
         videoMerge = document.getElementById("videoMerge"),
         leftVideo = document.getElementById("leftVideo"),
         rightVideo = document.getElementById("rightVideo"),
-        // videoControl = document.createElement("button"),
+        videoControl = document.querySelector('#exec'),
         position = 0.5,
         vidHeight = 576,
         vidWidth = 1024;
         mergeContext = videoMerge.getContext("2d");
         videoContainer.style.display = "none";
-        // videoControl.innerHTML = "Play";
-        // videoUI.appendChild(videoControl); 
-        // videoControl.addEventListener("click", playPause, false);
+        videoControl.addEventListener("click", playPause, false);
 
         function playPause() {
             if (leftVideo.paused) {
-                // videoControl.innerHTML = "Pause";
                 playVids();
             } else {
                 leftVideo.pause();
                 rightVideo.pause();
-                // videoControl.innerHTML = "Play";
             }
         }
 

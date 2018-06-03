@@ -1,13 +1,29 @@
+
+body {
+    display: flex;
+}
 #video-compare-container {
-    display: block;
+    display: flex;
     line-height: 0;
+    /* width: 100%; */
 }
 #videoMerge, #videoUI { 
     width: 100%;
-    display: block;
+    height: auto !important;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    right: 0;
     margin: 0 auto;
-    background: url("sequence-background.png");
-    background-size: cover;
+    /* background: url("sequence-background.png"); */
+    /* -webkit-background-size: cover;
+    background-position: center;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; */
+    background-attachment: initial;
+    background-position: center;
 }
 #videoUI {
     font-family: Helvetica Neue Regular, Helvetica, Arial, sans-serif;
@@ -30,23 +46,15 @@
     color: white;
 }
 
-video {
-    height: auto;
-    width: 100%;
-}
-
 @media only screen and (max-width:450px) {
     #over_video {
         margin-top: 2vh !important;
     }
 }
 
-body {
-    display: flex;
-}
 
 #over_video {
-    position: fixed;
+    position: absolute;
     display: flex;
     flex-direction: column;
     width: 100%;
