@@ -12,10 +12,10 @@
         </div>
         
         <div id="video-compare-container">
-            <video muted autoplay="autoplay" loop id="rightVideo">
+            <video muted autoplay="autoplay" playsinline loop id="rightVideo">
                 <source src="assets/videos/video-1.mp4">    
             </video>
-            <video muted autoplay="autoplay" loop id="leftVideo">
+            <video muted autoplay="autoplay" playsinline loop id="leftVideo">
                 <source src="assets/videos/video-2.mp4">
             </video>
         </div>
