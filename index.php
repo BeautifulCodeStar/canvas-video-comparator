@@ -36,6 +36,7 @@
         videoMerge = document.getElementById("videoMerge"),
         leftVideo = document.getElementById("leftVideo"),
         rightVideo = document.getElementById("rightVideo"),
+        overWrite = document.getElementById("over_video"),
         videoControl = document.querySelector('#exec'),
         position = 0.5,
         vidHeight = 800,
@@ -72,6 +73,9 @@
             videoMerge.addEventListener("mousemove", trackLocation, false); 
             videoMerge.addEventListener("touchstart",trackLocation,false);
             videoMerge.addEventListener("touchmove",trackLocation,false);
+            overWrite.addEventListener("mousemove",trackLocation,false);
+            overWrite.addEventListener("touchstart",trackLocation,false);
+            overWrite.addEventListener("touchmove",trackLocation,false);
             // videoMerge.addEventListener("resize",trackLocation,false);
             
             function drawLoop() {
