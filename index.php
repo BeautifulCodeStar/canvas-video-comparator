@@ -37,24 +37,24 @@
         videoMerge = document.getElementById("videoMerge"),
         leftVideo = document.getElementById("leftVideo"),
         rightVideo = document.getElementById("rightVideo"),
-        videoControl = document.createElement("button"),
+        // videoControl = document.createElement("button"),
         position = 0.5,
         vidHeight = 576,
         vidWidth = 1024;
         mergeContext = videoMerge.getContext("2d");
         videoContainer.style.display = "none";
-        videoControl.innerHTML = "Play";
-        videoUI.appendChild(videoControl); 
-        videoControl.addEventListener("click", playPause, false);
+        // videoControl.innerHTML = "Play";
+        // videoUI.appendChild(videoControl); 
+        // videoControl.addEventListener("click", playPause, false);
 
         function playPause() {
             if (leftVideo.paused) {
-                videoControl.innerHTML = "Pause";
+                // videoControl.innerHTML = "Pause";
                 playVids();
             } else {
                 leftVideo.pause();
                 rightVideo.pause();
-                videoControl.innerHTML = "Play";
+                // videoControl.innerHTML = "Play";
             }
         }
 
