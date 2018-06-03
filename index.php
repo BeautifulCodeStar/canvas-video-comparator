@@ -66,8 +66,9 @@
             
         } else {
             
-            // Use HTML5 video
-            // document.querySelectorAll('.canvas')[0].style.display = 'none';
+            setTimeout(() => {
+                playVids();
+            }, 1000);
             
         }	
 
@@ -78,16 +79,6 @@
                 leftVideo.pause();
                 rightVideo.pause();
             }
-        }
-
-        var iOS = /iPad|iPhone|iPod/.test(navigator.platform);
-        if (iOS) {
-            playPause();
-            playVids();
-        } else {
-            setTimeout(() => {
-                playVids();
-            }, 1000);
         }
 
     function playVids() {
