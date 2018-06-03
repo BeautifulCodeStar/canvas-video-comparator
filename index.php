@@ -53,9 +53,15 @@
                 rightVideo.pause();
             }
         }
-        setTimeout(() => {
-            playVids();
-        }, 1000);
+
+        var iOS = /iPad|iPhone|iPod/.test(navigator.platform);
+        if (iOS) {
+            playPause();
+        } else {
+            setTimeout(() => {
+                playVids();
+            }, 1000);
+        }
 
     function playVids() {
         if (leftVideo.readyState > 3 && rightVideo.readyState > 3) {
