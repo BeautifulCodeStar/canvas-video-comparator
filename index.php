@@ -2,6 +2,7 @@
     <head>
         <title>Video comparator tool</title>
         <link rel="stylesheet" id="fontawesome-css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" type="text/css" media="all">
+        
         <link rel="stylesheet" href="assets/css/font-awesome.min.css">
         <link rel="stylesheet" href="assets/css/style.css">
     </head>
@@ -29,6 +30,8 @@
             </p>
         </div>
     </body>
+    <script src="http://vjs.zencdn.net/ie8/1.1.0/videojs-ie8.min.js"></script>
+    <script src="http://vjs.zencdn.net/5.0.2/video.js"></script> `
     <script>
         
         var videoContainer = document.getElementById("video-compare-container"),
